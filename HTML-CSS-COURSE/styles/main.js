@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 const searchBar = document.querySelector(".search-bar");
+const searchBtn = document.querySelector("search-button");
 const voiceBtn = document.querySelector(".voice-search-button");
 
 function runSearch() {
@@ -18,7 +19,13 @@ function runSearch() {
     });
     }
 
-    searchBar.addEventListener("keyup", runSearch);
+    searchBar.addEventListener("click", runSearch);
+
+    searchBar.addEventListener("keydown", (e)=> {
+        if (e.key === "Enter"){
+            runSearch();
+        }
+    });
 
     const SpeechRecognition =
     window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -38,7 +45,6 @@ function runSearch() {
 
     recognition.onresult = (event) => {
     searchBar.value = event.results[0][0].transcript;
-    runSearch();
     };
 
     recognition.onend = () => {
