@@ -139,6 +139,13 @@
   flex-shrink: 0;
 }
 
+.plus-icon{
+  object-fit: contain;
+  width: 19px;
+  height: 19px;
+  position: absolute;
+}
+
 .create-btn{
   border-radius: 20px;
   border: none;
