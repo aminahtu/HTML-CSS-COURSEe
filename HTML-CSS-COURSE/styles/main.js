@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     function displayVideos(videoArray) {
-    if (!videoGrid) return; // safety
+    if (!videoGrid) return; 
 
     videoGrid.innerHTML = "";
 
