@@ -280,4 +280,4 @@ function runSearch() {
 });
 
     displayVideos(videos);
-});
+    });
