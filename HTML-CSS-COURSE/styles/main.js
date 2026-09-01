@@ -1,7 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
 const searchBar = document.querySelector(".search-bar");
-const searchBtn = document.querySelector("search-button");
+const searchBtn = document.querySelector(".search-button");
 const voiceBtn = document.querySelector(".voice-search-button");
+const chips = document.querySelectorAll(".chip");
+const videoGrid = document.querySelector(".video-grid");
+
 
 function runSearch() {
     const currentValue = searchBar.value.toLowerCase();
@@ -61,3 +64,6 @@ function runSearch() {
     voiceBtn.style.display = "none";
     }
 });
+
+
+
