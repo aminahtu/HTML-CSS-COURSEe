@@ -27,7 +27,7 @@
     category: "Entertainment",
     thumbnail: "thumbnails/thumbnail-3.webp",
     channelImage: "channel-pictures/channel-3.jpeg",
-    link: "https://www.youtube.com/"
+    link: "https://www.youtube.com/watch?v=FgjPQQeTh1w"
     },
     {
     title: "The Simplest Math Problem No One Can Solve - Collatz Conjecture",
