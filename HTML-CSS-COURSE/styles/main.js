@@ -1,4 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
     const videos = [
     {
     title: "Talking Tech and AI with Google CEO Sundar Pichai!",
@@ -122,13 +121,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     ];
 
-
+document.addEventListener("DOMContentLoaded", () => {
     const videoGrid = document.getElementById("videoGrid");
     const searchBar = document.querySelector(".search-bar");
     const searchBtn = document.querySelector(".search-button");
     const voiceBtn = document.querySelector(".voice-search-button");
     const chips = document.querySelectorAll(".chip");
-
+    const filteredSVideos = videos.filter((item) => item.title.toLowerCase().includes(""))
+console.log(filteredSVideos)
 
     function displayVideos(videoArray) {
     if (!videoGrid) return; 
@@ -187,27 +187,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function runSearch() {
     if (!searchBar || !videoGrid) return;
+    const currentValue = searchBar.value.toLowerCase().trim();
 
-    const currentValue = searchBar.value.toLowerCase();
-    const cards = videoGrid.querySelectorAll(".video-preview");
+    const filteredVideos = videos.filter(video =>
+        video.title.toLowerCase().includes(currentValue)
+    );
 
-    cards.forEach(card => {
-    const titleEl = card.querySelector(".video-title");
-    if (!titleEl) return;
-
-    const titleText = titleEl.textContent.toLowerCase();
-
-    if (titleText.includes(currentValue)) {
-        card.style.display = "";
-    } else {
-        card.style.display = "none";
-    }
-    });
+    displayVideos(filteredVideos);
 }
 
 
+
     if (searchBtn) {
-    searchBtn.addEventListener("click", runSearch);
+    searchBtn.addEventListener("input", runSearch);
 }
 
     if (searchBar) {
@@ -264,20 +256,16 @@ function runSearch() {
 
     this.classList.add("active");
 
-    const category = this.dataset.category;
+    const category = this.dataset.category.toLowerCase();
 
-    if (category === "All") {
-        displayVideos(videos);
-        return;
-    }
-
-    const filteredVideos = videos.filter(video => {
-        return video.category.toLowerCase() === category.toLowerCase();
-    });
+const filteredVideos = category === "all"
+    ? videos                                                
+    : videos.filter(video => video.category.toLowerCase() === category);  
 
         displayVideos(filteredVideos);
     });
 });
 
-    displayVideos(videos);
+    displayVideos(filteredSVideos);
     });
+
