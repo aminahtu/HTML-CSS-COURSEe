@@ -11,7 +11,7 @@ if (randomNumber === 1) {
     computerChoice = "rock";
 } else if (randomNumber === 2) {
     computerChoice = "paper";
-} else {
+} else { 
     computerChoice = "scissors";
 }
 
@@ -37,4 +37,12 @@ if (randomNumber === 1) {
         console.log("Please check the input")
     }
 
+    const playAgainPrompt = prompt("Do you want to Play Again? (yes/no)")
+    const playAgain = playAgainPrompt ? playAgainPrompt.toLowerCase() : "no";
+
+if (playAgain === "yes") {
+    rockPaperScissors ();
+} else {
+    console.log("Thanks for Playing! see you Again")
+}
 }
